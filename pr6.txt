@@ -1,0 +1,22 @@
+enable
+configure terminal
+interface GigabitEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+ip nat inside
+no shutdown
+exit
+
+interface GigabitEthernet0/1
+ip address 200.1.1.1 255.255.255.0
+ip nat outside
+no shutdown
+exit
+access-list 1 permit 192.168.1.0 0.0.0.255
+ip nat inside source list 1 interface g0/1 overload
+exit
+
+
+
+ping -t 200.1.1.2
+
+show ip nat translations
