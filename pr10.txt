@@ -1,0 +1,17 @@
+./ns3 run scratch/exp
+
+ip route
+route -n
+sudo ip route add 10.10.10.0/24 via 192.168.
+ip route
+
+sudo ip route del 10.10.10.0/24
+
+sudo ip route replace default via 192.168. dev eth0
+
+sudo sysctl -w net.ipv4.ip_forward=1
+cat /proc/sys/net/ipv4/ip_forward
+
+sudo iptables -L -n -v
+sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+sudo iptables -L INPUT -n -v
