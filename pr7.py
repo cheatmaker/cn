@@ -69,16 +69,16 @@ if __name__ == "__main__":
 
     choice = input("\nEnter choice (1-5): ")
 
-    funcs = {
-        '1': run_tcp_server,
-        '2': run_tcp_client,
-        '3': run_udp_server,
-        '4': run_udp_client
-    }
-
-    if choice in funcs:
-        funcs[choice]()
-    elif choice == '5':
-        sys.exit(0)
-    else:
-        print("Invalid choice.")
+    match choice:
+        case '1':
+            run_tcp_server()
+        case '2':
+            run_tcp_client()
+        case '3':
+            run_udp_server()
+        case '4':
+            run_udp_client()
+        case '5':
+            sys.exit(0)
+        case _:
+            print("Invalid choice.") 
